@@ -22,6 +22,8 @@
 - [Uso](#-uso)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Licença](#-licença)
+- [Contribuição](#-contribuição)
+- [Contato](#-contato)
 
 ---
 
@@ -65,3 +67,10 @@ O frontend é feito em React, consumindo uma API RESTful feita com Node.js e Exp
 cd frontend
 npm install
 npm start
+
+
+### Backend
+
+cd backend
+npm install
+node app.js
