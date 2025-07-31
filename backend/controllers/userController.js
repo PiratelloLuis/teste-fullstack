@@ -1,20 +1,16 @@
-// backend/controllers/userController.js
 const db = require('../db');
 const { v4: uuidv4 } = require('uuid');
-
 
 exports.createUser = (req, res) => {
   const { nome, email } = req.body;
   const id = uuidv4();  // gera o UUID para o campo id
 
-exports.createUser = (req, res) => {
-  const { nome, email } = req.body;
   db.query(
-    'INSERT INTO usuarios (nome, email) VALUES (?, ?)',
-    [nome, email],
+    'INSERT INTO usuarios (id, nome, email) VALUES (?, ?, ?)',
+    [id, nome, email],
     (err, result) => {
       if (err) return res.status(500).json(err);
-      res.status(201).json({ id: result.insertId, nome, email });
+      res.status(201).json({ id, nome, email });
     }
   );
 };
@@ -39,15 +35,6 @@ exports.getUsers = (req, res) => {
   });
 };
 
-  db.query(
-    'INSERT INTO usuarios (id, nome, email) VALUES (?, ?, ?)',
-    [id, nome, email],
-    (err, result) => {
-      if (err) return res.status(500).json(err);
-      res.status(201).json({ id, nome, email });
-    }
-  );
-};
 exports.getUserById = (req, res) => {
   const { id } = req.params;
   db.query('SELECT * FROM usuarios WHERE id = ?', [id], (err, results) => {
