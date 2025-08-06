@@ -5,7 +5,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'testefullstack' // altere para o seu banco
+  database: 'testefullstack' 
 });
 
 module.exports = db;

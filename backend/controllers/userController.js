@@ -29,11 +29,15 @@ exports.getUsers = (req, res) => {
     params.push(`%${email}%`);
   }
 
+  // Ordena do mais recente para o mais antigo
+  sql += ' ORDER BY created_at DESC';
+
   db.query(sql, params, (err, results) => {
     if (err) return res.status(500).json(err);
     res.json(results);
   });
 };
+
 
 exports.getUserById = (req, res) => {
   const { id } = req.params;
